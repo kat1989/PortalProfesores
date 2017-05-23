@@ -1,0 +1,22 @@
+D:\Raul.Montero\Backup disco externo\Projects\portalprofesores\Logger\bin\Debug\Logger.dll
+D:\Raul.Montero\Backup disco externo\Projects\portalprofesores\Logger\bin\Debug\Logger.pdb
+D:\Raul.Montero\Backup disco externo\Projects\portalprofesores\Logger\obj\Debug\Logger.dll
+D:\Raul.Montero\Backup disco externo\Projects\portalprofesores\Logger\obj\Debug\Logger.pdb
+D:\Raul Montero\Projects\portalprofesores\Logger\bin\Debug\Logger.dll
+D:\Raul Montero\Projects\portalprofesores\Logger\bin\Debug\Logger.pdb
+D:\Raul Montero\Projects\portalprofesores\Logger\obj\Debug\Logger.dll
+D:\Raul Montero\Projects\portalprofesores\Logger\obj\Debug\Logger.pdb
+C:\Users\raul.montero\Desktop\portalprofesores\Logger\bin\Debug\Logger.dll
+C:\Users\raul.montero\Desktop\portalprofesores\Logger\bin\Debug\Logger.pdb
+C:\Users\raul.montero\Desktop\portalprofesores\Logger\obj\Debug\Logger.dll
+C:\Users\raul.montero\Desktop\portalprofesores\Logger\obj\Debug\Logger.pdb
+C:\Users\Public\Documents\Proyectos Intec\revision_calificaciones\revision_calificaciones\portalprofesores\Logger\bin\Debug\Logger.dll
+C:\Users\Public\Documents\Proyectos Intec\revision_calificaciones\revision_calificaciones\portalprofesores\Logger\bin\Debug\Logger.pdb
+C:\Users\Public\Documents\Proyectos Intec\revision_calificaciones\revision_calificaciones\portalprofesores\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\Proyectos Intec\revision_calificaciones\revision_calificaciones\portalprofesores\Logger\obj\Debug\Logger.dll
+C:\Users\Public\Documents\Proyectos Intec\revision_calificaciones\revision_calificaciones\portalprofesores\Logger\obj\Debug\Logger.pdb
+C:\Users\kat1989\Downloads\portalprofesores\portalprofesores\Logger\bin\Debug\Logger.dll
+C:\Users\kat1989\Downloads\portalprofesores\portalprofesores\Logger\bin\Debug\Logger.pdb
+C:\Users\kat1989\Downloads\portalprofesores\portalprofesores\Logger\obj\Debug\Logger.dll
+C:\Users\kat1989\Downloads\portalprofesores\portalprofesores\Logger\obj\Debug\Logger.pdb
+C:\Users\kat1989\Downloads\portalprofesores\portalprofesores\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
