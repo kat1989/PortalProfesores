@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Jenzabar" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="JenzabarEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="INTEC_VW_SELECION_MODULO_RETIROS" EntityType="Jenzabar.INTEC_VW_SELECION_MODULO_RETIROS" />
+    <FunctionImport Name="RetirarAsignatura">
+      <Parameter Name="id" Mode="In" Type="String" />
+      <Parameter Name="asignatura" Mode="In" Type="String" />
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="navegador" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Autenticar" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="String" />
+      <Parameter Name="matricula" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ValidarFechaRetiro" ReturnType="Collection(Int32)" />
+    <EntitySet Name="INTEC_VW_PERFIL_MODULO_RETIROS" EntityType="Jenzabar.INTEC_VW_PERFIL_MODULO_RETIROS" />
+  </EntityContainer>
+  <EntityType Name="INTEC_VW_SELECION_MODULO_RETIROS">
+    <Key>
+      <PropertyRef Name="ID_ESTUDIANTE" />
+      <PropertyRef Name="CREDITOS" />
+      <PropertyRef Name="CALIFICACION" />
+      <PropertyRef Name="ESTATUS" />
+      <PropertyRef Name="IDENTITY" />
+    </Key>
+    <Property Type="String" Name="TRIMESTRE" MaxLength="65" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ID_ESTUDIANTE" Nullable="false" />
+    <Property Type="String" Name="ASIGNATURA" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SECCION" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="CREDITOS" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="String" Name="DESCRIPCION" MaxLength="35" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="CALIFICACION" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="ESTATUS" Nullable="false" />
+    <Property Type="Int64" Name="IDENTITY" Nullable="false" />
+    <Property Name="FECHA" Type="DateTime" Precision="0" />
+    <Property Name="FECHA_RETIRO" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="INTEC_VW_PERFIL_MODULO_RETIROS">
+    <Key>
+      <PropertyRef Name="ID_NUM" />
+      <PropertyRef Name="MATRICULA" />
+      <PropertyRef Name="COND_ACADEMICA" />
+      <PropertyRef Name="EMAIL" />
+    </Key>
+    <Property Type="Int32" Name="ID_NUM" Nullable="false" />
+    <Property Type="String" Name="MATRICULA" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PRIMER_NOMBRE" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SEGUNDO_NOMBRE" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="APELLIDOS" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PROGRAMA" MaxLength="71" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="COD_PROGRAMA" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="COND_ACADEMICA" Nullable="false" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="TOTAL_RETIROS" />
+    <Property Type="Int32" Name="TOTAL_EN_CURSO" />
+    <Property Type="Int32" Name="TOTAL_INSCRITAS" />
+    <Property Type="String" Name="CUR_YR_DFLT" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="CUR_TRM_DFLT" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="EMAIL" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DIVISION" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

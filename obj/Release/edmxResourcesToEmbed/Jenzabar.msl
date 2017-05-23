@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JenzabarStoreContainer" CdmEntityContainer="JenzabarEntities">
+    <EntitySetMapping Name="INTEC_VW_SELECION_MODULO_RETIROS">
+      <EntityTypeMapping TypeName="Jenzabar.INTEC_VW_SELECION_MODULO_RETIROS">
+        <MappingFragment StoreEntitySet="INTEC_VW_SELECION_MODULO_RETIROS">
+          <ScalarProperty Name="FECHA_RETIRO" ColumnName="FECHA_RETIRO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="IDENTITY" ColumnName="IDENTITY" />
+          <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+          <ScalarProperty Name="CALIFICACION" ColumnName="CALIFICACION" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="CREDITOS" ColumnName="CREDITOS" />
+          <ScalarProperty Name="SECCION" ColumnName="SECCION" />
+          <ScalarProperty Name="ASIGNATURA" ColumnName="ASIGNATURA" />
+          <ScalarProperty Name="ID_ESTUDIANTE" ColumnName="ID_ESTUDIANTE" />
+          <ScalarProperty Name="TRIMESTRE" ColumnName="TRIMESTRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="RetirarAsignatura" FunctionName="Jenzabar.Store.PRC_RETIRAR_ASIGNATURA_MODULO_RETIRO" />
+    <FunctionImportMapping FunctionImportName="Autenticar" FunctionName="Jenzabar.Store.PRC_LOGIN_MODULO_RETIRO" />
+    <FunctionImportMapping FunctionImportName="ValidarFechaRetiro" FunctionName="Jenzabar.Store.PRC_VALIDAR_FECHA_MODULO_RETIRO" />
+    <EntitySetMapping Name="INTEC_VW_PERFIL_MODULO_RETIROS">
+      <EntityTypeMapping TypeName="Jenzabar.INTEC_VW_PERFIL_MODULO_RETIROS">
+        <MappingFragment StoreEntitySet="INTEC_VW_PERFIL_MODULO_RETIROS">
+          <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CUR_TRM_DFLT" ColumnName="CUR_TRM_DFLT" />
+          <ScalarProperty Name="CUR_YR_DFLT" ColumnName="CUR_YR_DFLT" />
+          <ScalarProperty Name="TOTAL_INSCRITAS" ColumnName="TOTAL_INSCRITAS" />
+          <ScalarProperty Name="TOTAL_EN_CURSO" ColumnName="TOTAL_EN_CURSO" />
+          <ScalarProperty Name="TOTAL_RETIROS" ColumnName="TOTAL_RETIROS" />
+          <ScalarProperty Name="COND_ACADEMICA" ColumnName="COND_ACADEMICA" />
+          <ScalarProperty Name="COD_PROGRAMA" ColumnName="COD_PROGRAMA" />
+          <ScalarProperty Name="PROGRAMA" ColumnName="PROGRAMA" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="SEGUNDO_NOMBRE" ColumnName="SEGUNDO_NOMBRE" />
+          <ScalarProperty Name="PRIMER_NOMBRE" ColumnName="PRIMER_NOMBRE" />
+          <ScalarProperty Name="MATRICULA" ColumnName="MATRICULA" />
+          <ScalarProperty Name="ID_NUM" ColumnName="ID_NUM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
