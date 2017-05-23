@@ -1,6 +1,0 @@
-D:\USERDATA\Marino.Villar\Desktop\seleccion\DataAccess\bin\Release\DataAccess.dll.config
-D:\USERDATA\Marino.Villar\Desktop\seleccion\DataAccess\bin\Release\DataAccess.dll
-D:\USERDATA\Marino.Villar\Desktop\seleccion\DataAccess\bin\Release\DataAccess.pdb
-D:\USERDATA\Marino.Villar\Desktop\seleccion\DataAccess\obj\Release\ResolveAssemblyReference.cache
-D:\USERDATA\Marino.Villar\Desktop\seleccion\DataAccess\obj\Release\DataAccess.dll
-D:\USERDATA\Marino.Villar\Desktop\seleccion\DataAccess\obj\Release\DataAccess.pdb
