@@ -1,0 +1,27 @@
+﻿body .login-container {
+    display:none;    
+}
+
+body .noscript {
+    display:block;
+    margin:0 auto;
+    width:80%;
+    text-align:center;  
+}
+
+body .noscript p
+{
+    color:#b5b1b1;
+    font-size:20px;
+}
+
+body .noscript img{
+    margin:0 50%;
+}
+
+
+body .noscript a
+{
+    color:Blue;
+    white-space:nowrap;
+}

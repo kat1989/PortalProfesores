@@ -1,0 +1,27 @@
+﻿body .login-container {
+    display:none;    
+}
+
+body .ie7 {
+    display:block;
+    margin:0 auto;
+    width:80%;
+    text-align:center;  
+}
+
+body .ie7 p
+{
+    color:#b5b1b1;
+    font-size:20px;    
+}
+
+body .ie7 img{
+    margin:0 50%;
+}
+
+
+body .ie7 a
+{
+    color:Blue;
+    white-space:nowrap;
+}
