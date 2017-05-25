@@ -1,0 +1,65 @@
+﻿@model DataAccess.Model.Profesor
+
+@{  
+    Layout = "~/Views/Shared/_ContentLayout.cshtml";
+    int id = 0;
+    int.TryParse(Request.QueryString["r"],out id);
+    string reporte = WebUI.Helpers.ReportCenterConfiguration.Instance.Reports[id].Visualization;
+    ViewBag.Title = reporte;
+}
+
+<div class="content-header">
+    @Html.Partial("_Topbar")
+    @using(Html.BeginForm("GenerarReporte","Main",FormMethod.Post))
+    {
+	    <div class="uk-width-1-1">
+		    <h1 class="section-title light-bottom-border">@reporte</h1>            
+		    <div class="parameter-container">
+@*                <div class="parameter">
+                    <span>Año</span>
+                    <select id="ano" name="ano">
+                        @for (int i = DateTime.Now.Year; i >=1972 ; i--)
+                        {
+                            <option>@i</option>
+                        }
+                    </select> 
+                </div>
+                <div class="parameter">
+                    <span>Periodo</span>
+                    <select id="periodo" name="periodo">
+                        @for (int i = 1; i <=4 ; i++)
+                        {
+                            <option>@i</option>
+                        }
+                    </select> 
+                </div>*@
+                <div class="parameter">
+                    <span>Asignatura</span>
+                    <select id="asignatura" name="asignatura">
+                        @Model.Asignaturas.OrderBy(m => m.NombreCompleto);
+                        @foreach (var item in Model.Asignaturas)
+                        {
+                            <option value="@item.CodigoCompleto">@item.NombreCompleto ( @item.CodigoCompleto )</option>
+                        }
+                    </select>
+                </div>
+                <div class="parameter uk-align-right">
+                    <button id="btnGenerar" class="button-square no-border bg-black">Generar Reporte</button>
+                </div>
+                <div class="parameter uk-align-right">
+                    <span>Formato</span>
+                    <select id="Formato" name="Formato">
+                        <option value="PDF">PDF</option>
+                        <option value="Excel">Excel</option>                        
+                    </select> 
+                </div>
+            @Html.TextBox("reporte",id , new { style="display:none" })
+		    </div>
+	    </div>
+    }
+</div>
+
+@if (!String.IsNullOrEmpty(ViewBag.Error))
+{
+    <text><script>alert("@ViewBag.Error")</script></text>
+}

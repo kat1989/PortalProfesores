@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/WebUI/Helpers
+END
+ProfesorHelper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/WebUI/Helpers/ProfesorHelper.cs
+END
+SimpleSecurity.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/WebUI/Helpers/SimpleSecurity.cs
+END
+WrapperReporte.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/WebUI/Helpers/WrapperReporte.cs
+END
+ReportConfiguration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/WebUI/Helpers/ReportConfiguration.cs
+END
+SessionWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/WebUI/Helpers/SessionWrapper.cs
+END
+WrapperSession.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/WebUI/Helpers/WrapperSession.cs
+END

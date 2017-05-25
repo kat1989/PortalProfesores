@@ -1,0 +1,89 @@
+10
+
+dir
+4
+http://intfs01.intecadm.intec.edu.do/svn/revision_calificaciones/trunk/portalprofesores/packages
+http://intfs01.intecadm.intec.edu.do/svn/revision_calificaciones
+
+
+
+2014-09-02T21:19:44.730433Z
+4
+raul.montero
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ffe237bf-77c3-4e40-a014-4416b12b0121
+
+EntityFramework.4.1.10331.0
+dir
+
+jQuery.UI.Combined.1.8.11
+dir
+
+jQuery.1.5.1
+dir
+
+Microsoft.AspNet.WebApi.5.0.0
+dir
+
+Newtonsoft.Json.5.0.6
+dir
+
+Microsoft.AspNet.WebApi.Core.5.0.0
+dir
+
+jQuery.Validation.1.8.0
+dir
+
+repositories.config
+file
+
+
+
+
+2014-09-05T17:53:38.945084Z
+ae405d17c8842abdbcc373dd2d6f60da
+2014-09-02T21:19:44.730433Z
+4
+raul.montero
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+178
+
+Modernizr.1.7
+dir
+
+jQuery.vsdoc.1.5.1
+dir
+

@@ -1,0 +1,277 @@
+﻿@model DataAccess.Model.EstudianteRetiro
+           
+@{ViewBag.Title = "Retiro de Asignaturas";}
+
+  <script type="text/javascript">
+      $(document).ready(function () {
+          var seleccion = $('#grdSeleccion');
+          var retiro = $('#grdAsignatura');
+
+          loadInfoGrid(seleccion, retiro);
+      });
+  </script>
+  
+<tr> <!-- Variables -->    <td></td><td align="right">@Model.ID<br></td>  </tr>
+<tr> <!-- Menu -->  <td colspan="2" align="right" class="navBar" valign="top">    <div class="gcButtons" id="gcButtons"><div class="gcInnerBorder"><table cellspacing="0" cellpadding="0" width="1" border="0"><tbody><tr><td></td></tr></tbody></table></div></div>  </td>  </tr>
+<tr> <!-- Body -->    <td colspan="2" align="center">
+
+  <form name="_ctl0" method="post" action="/Retiro/Index" id="_ctl0">
+      <script language="javascript" type="text/javascript">
+<!--
+    function __doPostBack(eventTarget, eventArgument) {
+        var theform;
+        if (window.navigator.appName.toLowerCase().indexOf("microsoft") > -1) {
+            theform = document._ctl0;
+        }
+        else {
+            theform = document.forms["_ctl0"];
+        }
+        theform.__EVENTTARGET.value = eventTarget.split("$").join(":");
+        theform.__EVENTARGUMENT.value = eventArgument;
+        theform.submit();
+    }
+// -->
+      </script> 
+
+  <input type="hidden" id="field" name="field" value="Y">
+  <div style="visibility:hidden"><span id="generic"></span></div>
+  <div style="visibility:hidden"><span id="tipo">L</span></div>
+  <div style="visibility:hidden"><span id="error"></span></div>
+  <table cellspacing="0" cellpadding="0" border="0">          
+   <tbody><tr>
+    <td valign="top" width="100%" rowspan="2">
+
+
+
+
+     <table class="paneles" width="900px"> 
+
+
+      <!-- PANEL 1 ------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+      <tbody><tr>
+       <th>Información del Estudiante</th>
+      </tr>
+
+      <tr><td><strong>&nbsp;</strong></td></tr>
+
+      <tr>
+       <td align="middle">
+        <table style="width:100%">
+         <tbody><tr>
+          <td valign="top" width="10" class="bordeDerecha">
+            <input id="btnTerminar1" type="button" class="myButtom" value="Guardar Cambios" onclick="" />
+            <input type="button" name="btnSalirSin" value="Salir sin Grabar" id="btnSalirSin" class="myButtom" 
+                onclick="javascript:location.href = '@Url.Action("Menu", "Main")'"/>
+            <input type="button" name="VerPDF" value="Reporte Retiros" id="VerPDF" class="myButtom"
+                onclick="javascript:location.href = '@Url.Action("ObtenerPDF", "Retiro")'" />
+          </td>
+          <td valign="top">
+           <table>
+            <tbody><tr>
+             <td align="right">
+              <strong>Estudiantes</strong>
+             </td>
+             <td align="Left" nowrap="nowrap" width="300px" bgcolor="whitesmoke">                
+              <span id="lblMatricula" class="TxtNormalU">@Model.ID</span>&nbsp; 
+              <span id="lblPriNombre" class="TxtNormalU">@Model.Nombre</span>&nbsp;
+              <span id="lblSegNombre" class="TxtNormalU">@Model.SegundoNombre</span>&nbsp;
+              <span id="lblPriApellido" class="TxtNormalU">@Model.Apellido</span>&nbsp;
+@*              <span id="lblSegApellido" class="TxtNormalU">PEREZ</span>&nbsp;*@
+             </td>
+            </tr>
+            <tr>
+             <td align="right">
+              <strong>Programa</strong>
+             </td>
+             <td align="Left" bgcolor="whitesmoke">
+              <span id="lblDescripcion" class="TxtNormalU">@Model.Programa</span>&nbsp;                                                                    
+             </td>
+            </tr>
+            <tr>
+             <td align="right">
+              <strong>Condición</strong>
+             </td>
+             <td align="Left" nowrap="nowrap" bgcolor="whitesmoke">
+              <span id="lblCondicion" class="TxtNormalU">@Model.Condicion</span>&nbsp;                                                                    
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+          <td>
+           <table style="background-color:whitesmoke;">
+            <tbody><tr>
+             <td align="Left">Inscritas</td>
+             <td> &nbsp; &nbsp;  &nbsp; &nbsp; <span id="lblInscritas" class="TxtNormalU">@Model.TotalAsignaturasInscritas</span></td>
+            </tr>
+            <tr>
+             <td align="Left">Retiradas</td>
+             <td> &nbsp; &nbsp;  &nbsp; &nbsp; <span id="lblRetiradas" class="TxtNormalU">@Model.TotalAsignaturasRetiradas</span></td>
+            </tr>
+            <tr>
+             <td align="Left">Continua</td>
+             <td> &nbsp; &nbsp;  &nbsp; &nbsp; <span style="color:Maroon"><span id="lblCursadas" class="TxtNormalU">@Model.TotalAsignaturasEnCurso</span></span></td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        </tbody></table>                                                    
+    
+                                               
+    </td>
+      </tr>
+
+
+
+   <tr><td>&nbsp;</td></tr>
+   <tr><td align="center"></td></tr>
+   <tr><td>&nbsp;</td></tr>
+
+
+   <!-- PANEL 2 ------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+   <tr> 
+    <th align="middle">Asignaturas Seleccionadas &nbsp; - &nbsp; <font face="Verdana"><span id="lblTrimestre" class="TxtNormalU">Nov-2013/Ene-2014</span></font></th>
+   </tr>
+    
+   <tr>
+    <td align="middle">
+       <table cellspacing="1" cellpadding="2" rules="all" fontstyle-horizontalalign="Center" border="1" id="grdSeleccion" style="border: 1px solid gray; width:100%">
+	    <tbody>
+            <tr align="Center" bgcolor="Black">
+		        <td class="tableHeader"></td>
+                <td class="tableHeader">Clave</td>
+                <td class="tableHeader">Sec</td>
+                <td class="tableHeader">Cr</td>
+                <td class="tableHeader" width="500" style="text-align:left">Asignatura</td>
+                <td class="tableHeader">Calif</td>
+	        </tr>
+            @foreach (var item in Model.Asignaturas)
+            {
+                if (item.Estatus == 0)
+                {                                
+                    <tr class="ColNormal" bgcolor="White">
+		                <td>
+                            <a href="#">
+                                <img src="../../Content/themes/base/images/delete_icon.gif" border="0" align="absmiddle" alt="Seleccionar">
+                            </a>
+                        </td>
+                        <td>@item.Codigo</td>
+                        <td>@item.Seccion</td>
+                        <td>@item.Creditos</td>
+                        <td style="text-align:left">@item.Nombre</td>
+                        <td>@item.Calificacion</td>
+	                </tr>
+                }
+            }
+        </tbody>
+        </table>
+      </td>
+     </tr>
+
+
+
+   <tr><td>&nbsp;</td></tr>
+   <tr><td>&nbsp;</td></tr>
+
+
+
+
+     <tr>
+      <th align="middle">Asignaturas Retiradas</th>
+     </tr>
+
+
+     <tr>
+      <td align="middle">
+       <table cellspacing="1" cellpadding="2" rules="all" fontstyle-horizontalalign="Center" border="1" id="grdAsignatura" style="border: 1px solid gray; width:100%;">
+	<tbody>
+        <tr align="Center" bgcolor="Black">
+		    <td class="tableHeader" width="15"> </td>
+            <td class="tableHeader">Clave</td>
+            <td class="tableHeader">Sec</td>
+            <td class="tableHeader">Cr</td>
+            <td class="tableHeader" width="500" style="text-align:left">Asignatura</td>
+            <td class="tableHeader">Calif</td>
+        </tr>
+        
+        @{
+            int i = 0;
+            foreach (var item in  Model.Asignaturas)            
+            {        
+                if (item.Estatus == 1)
+                { 
+                    <tr class="ColNormal" style="background-color: #FFCC66">
+		                <td></td>
+                        <td>
+                            <input type="text" readonly="true" class="asLabel" 
+                                id="Asignaturas_@(i)__Codigo" 
+                                name="Asignaturas[@(i)].Codigo" value="@item.Codigo" />
+                        </td>
+                        <td>
+                            <input type="text" readonly="true" class="asLabel" 
+                                id="Asignaturas_@(i)__Seccion" 
+                                name="Asignaturas[@(i)].Seccion" value="@item.Seccion" />                        
+                        </td>
+                        <td>
+                            <input type="text" readonly="true" class="asLabel" 
+                                id="Asignaturas_@(i)__Creditos" 
+                                name="Asignaturas[@(i)].Creditos" value="@item.Creditos" />                        
+                        </td>
+                        <td>
+                            <input type="text" readonly="true" class="asLabel" style="text-align:left"
+                                id="Asignaturas_@(i)__Nombre"
+                                name="Asignaturas[@(i)].Nombre" value="@item.Nombre" />
+                        </td>
+                        <td>
+                            <input type="text" readonly="true" class="asLabel" 
+                                id="Asignaturas_@(i)Calificacion" 
+                                name="Asignaturas[@(i)].Calificacion" value="R" />
+                        </td>
+                        <td class="noDisplay">
+                            <input type="text" readonly="true" class="asLabel"
+                                id="Estatus_@(i)Estatus"
+                                name="Estatus[@(i)].Estatus" value="@item.Estatus" />
+                        </td>
+	                </tr>
+                    i = i + 1;
+                }
+            }
+        }
+</tbody></table>                                   
+      </td>
+     </tr>
+
+
+     <tr>
+      <td align="middle">
+       <table align="center" style="border: 1px solid black">
+        <tbody><tr><td></td></tr>
+        <tr>
+         <td> &nbsp; &nbsp; &nbsp; </td>
+         <td style="background-color:#FFCC66; border:1px solid black"> &nbsp; &nbsp; &nbsp; </td><td>&nbsp;</td><td align="left">Asignaturas retiradas previamente</td>
+         <td> &nbsp;  &nbsp;  &nbsp;  &nbsp; </td>
+         <td style="background-color:#FFFFCC; border:1px solid black"> &nbsp; &nbsp; &nbsp; </td><td>&nbsp;</td><td align="left">Intención de retiro</td>
+         <td> &nbsp; &nbsp; &nbsp; </td>
+        </tr>
+        <tr><td></td></tr>
+       </tbody></table>                                   
+      </td>
+     </tr>
+
+     
+
+
+
+ </tbody></table>
+
+      
+   </td>
+  </tr>
+ </tbody></table>
+
+
+ <br><br><br>
+
+@{Html.RenderPartial("_Boxes");} 
+ 
+ </form></td>  </tr>  <tr> <!-- Footer -->    <td colspan="2">    <table class="wrapper" width="980" border="0" align="center" cellpadding="0" cellspacing="0">  <tbody><tr>    <td colspan="2" align="center" valign="top" class="pageFooter aChiquitos">		<hr class="hrPageFooter">        Instituto Tecnológico de Santo Domingo - INTEC        <!-- MENU PIE DE PAGINA 		<a href="javascript:window.location.href=_siteUrl + '?o=acerca'">Sobre INTEC</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=admisiones2'">Admisiones</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=estudiantes2'">Estudiantes</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=nuestrasCarreras'">Carreras Impartidas</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=profesores2'">Profesores</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=investigacion'">Investigación y Vinculación</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=biblioteca2'">Biblioteca</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=egresados'" target="_blank">Egresados</a>        -->    </td>  </tr></tbody></table>    </td>  </tr></tbody></table>
+

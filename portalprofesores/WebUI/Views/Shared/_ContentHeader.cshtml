@@ -1,0 +1,13 @@
+﻿<div class="content-header">
+	<div class="topbar">		
+        <a href="#" class="uk-icon-cog uk-float-right"></a>
+        <span class="uk-float-right">@(Model.Nombre + " " + Model.SegundoNombre + " " + Model.Apellido)</span>        
+	</div>
+	<div class="uk-width-1-1">
+		<h1 class="section-title light-bottom-border">Selección de Asignaturas</h1>
+		<div class="button_container">
+			<button id="btnGuardar" onclick="save(@Model.ID)" class="button-square no-border uk-icon-save bg-green">Guardar</button>
+			<button id="btnSalir" onclick="salir(@Model.ID)"class="button-square no-border uk-icon-trash-o bg-red">Cancelar</button>
+		</div>
+	</div>
+</div>

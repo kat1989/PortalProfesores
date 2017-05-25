@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Logger
+END
+EventLogger.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Logger/EventLogger.cs
+END
+ILogger.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Logger/ILogger.cs
+END
+Logger.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Logger/Logger.csproj
+END

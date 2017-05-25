@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/Adapter
+END
+ProfesorAdapter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/Adapter/ProfesorAdapter.cs
+END
+AbstractAdapter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/Adapter/AbstractAdapter.cs
+END
+EstudianteAdapter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/Adapter/EstudianteAdapter.cs
+END

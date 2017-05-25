@@ -1,0 +1,189 @@
+﻿@model DataAccess.Model.Estudiante
+           
+<div id="boxes">
+<div style="top: 150px; left: 324.5px; display: block; text-align:left;" id="dialog2" class="window">
+    <h2 style="text-align:center;">Términos &amp; Condiciones</h2>
+
+    @if (Model.Division == "G")
+    {
+        <p><strong>Cualquier retiro está sujeto a los nuevos reglamentos:</strong></p>
+        <p><strong>Artículo 82:</strong> Todo estudiante podrá retirar una, varias o todas las asignaturas seleccionadas en un trimestre, desde la segunda hasta la novena semana del trimestre en curso.</p>
+        <p><strong>Artículo 83:</strong> Todo retiro de asignatura deberá ser realizado ante el Departamento de Registro o mediante el mecanismo establecido para tales fines.</p>
+        <p><strong>Artículo 84:</strong> Todo estudiante recibirá como calificación una “R” en todas las asignaturas que haya retirado.</p>
+        <p><strong>PÁRRAFO:</strong> Las asignaturas retiradas serán tomadas, en consideración para el establecimiento del Progreso Académico del o la estudiante. </p>
+        <p><strong>Artículo 106:</strong> Ningún estudiante podrá cursar una misma asignatura más de cinco (5) veces sin aprobarla. </p>
+    }
+    else
+    {
+        <p><strong>Artículo 90:</strong> Todo estudiante podrá retirar una, varias o todas las asignaturas seleccionadas en un trimestre, hasta la media noche del domingo de la novena semana.</p> 
+        <p>Párrafo. En los programas que no sean trimestrales, los retiros de una, varias o todas las asignaturas seleccionadas en el período podrán realizarse hasta el viernes de la antepenúltima semana.</p>
+        <p><strong>Artículo 91:</strong> Todo retiro de asignatura deberá ser realizado ante el Departamento de Registro y mediante el mecanismo establecido para tales fines.</p>
+        <p><strong>Artículo 92:</strong> Todo estudiante recibirá como calificación una “R” en todas las asignaturas que haya retirado.</p>
+        <p><strong>Artículo 93:</strong> Ningún estudiante podrá retirar una misma asignatura más de dos (2) veces.</p>        
+    }
+    <br />
+    <br />
+    <input id="termsbody" name="termsbody" type="checkbox"> He leido y acepto los términos y condiciones expuestos en los artículos anteriores.<br><br>
+    <center><input disabled="" name="terms" value="Acepto" id="terms" type="button"> </center>
+</div>
+
+<div id="dialog1" class="window" style="top: 150px; left: 333px;">
+    <table align="center" width="700px">
+        <tbody>
+            <tr>
+                <td colspan="3" align="center"><font color="Black"><b>CAUSAS DEL RETIRO</b></font></td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <span><font color="Black"><input id="causa1" name="causa1" type="checkbox"><label for="causa1">1. Problemas de trabajo</label></font></span>
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <span><font color="Black"><input id="causa2" name="causa2" type="checkbox"><label for="causa2">2. Problemas de horario</label></font></span>
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <span><font color="Black"><input id="causa3" name="causa3" type="checkbox"><label for="causa3">3. Problemas de salud</label></font></span>
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <span><font color="Black"><input id="causa4" name="causa4" type="checkbox"><label for="causa4">4. Problemas económicos</label></font></span>
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <span><font color="Black"><input id="causa5" name="causa5" type="checkbox"><label for="causa5">5. Problemas personales</label></font></span>
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <span><font color="Black"><input id="causa6" name="causa6" type="checkbox"><label for="causa6">6. Disgusto con institución</label></font></span>
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <span><font color="Black"><input id="causa7" name="causa7" type="checkbox"><label for="causa7">7. Problemas con el profesor (especifique)</label></font></span>
+                </td>
+                <td>
+                    <input name="problema1" id="problema1" textalign="Right" checked="False" type="text">
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <span><font color="Black"><input id="causa8" name="causa8" type="checkbox"><label for="causa8">8. Rendimiento Académico</label></font></span>
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <span><font color="Black"><input id="causa9" name="causa9" type="checkbox"><label for="causa9">9. Otros (especifique)</label></font></span>
+                </td>
+                <td>
+                    <input name="problema2" id="problema2" textalign="Right" checked="False" type="text">
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    <img src="../images/mail.gif"><font color="Black" face="arial"> &nbsp; Correo electrónico donde desea recibir el reporte de retiros :</font>
+                </td>
+                <td>
+                    <input name="email" value="@Model.Correo" size="30" id="email" type="text" readonly><span style="background-image: url(&quot;../images/validYes.png&quot;);" id="validEmail"></span>
+                </td>
+            </tr>
+            <tr class="order">
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr class="order">
+                <td colspan="3" align="center">
+                    <div id="bot" class="bot">
+                        <input name="btnTerminar" value="Guardar Cambios" id="btnTerminar" type="button">
+                        <input name="btnSalirSin2" value="Salir sin Grabar" id="btnSalirSin2" textmode="password" type="button">
+                    </div>
+                    <div id="prog" class="prog">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><img src="../images/progress.gif" alt=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="login" style="top: 150px; left: 533px;">
+    <table width="100%">
+        <tbody>
+            <tr>
+                <td rowspan="8" align="right"><img src="../../Content/themes/base/images/lock.png"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <font color="Black">Confirma tus credenciales</font>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <font color="Black">&nbsp;</font>
+                </td>
+            </tr>
+            <tr align="right">
+                <td>
+                    <font color="Black">ID:</font>
+                </td>
+                <td align="left">
+                    <input name="username" value="@Model.ID" id="username" textalign="Left" checked="False" type="text" readonly>
+                </td>
+            </tr>
+            <tr align="right">
+                <td>
+                    <font color="Black">Matricula</font>
+                </td>
+                <td align="left">
+                    <input value="@Model.Matricula" id="matricula" textalign="Left" checked="False" type="text" readonly>
+                </td>
+            </tr>
+            <tr align="right">
+                <td>
+                    <font color="Black">contraseña:</font>
+                </td>
+                <td align="left">
+                    <input name="password" id="password" textalign="Left" value="" checked="False" type="password">
+                </td>
+            </tr>
+            <tr align="right">
+                <td>&nbsp;</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input name="btnSalirSin3" value="Cancelar" id="btnSalirSin3" type="button">
+                    <input name="btnLogin" value="Retirar" id="btnLogin" type="button">
+                </td>
+                <td>
+                    <span id="msgbox" style="display:none; color:red"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="width: 1349px; height: 733px; display: block; opacity: 0.6;" id="mask"></div>
+</div>

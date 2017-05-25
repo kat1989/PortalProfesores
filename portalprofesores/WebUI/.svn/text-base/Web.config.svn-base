@@ -1,0 +1,126 @@
+﻿<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=152368
+  -->
+
+<configuration>
+  <configSections>
+    <!-- Mailcenter configuration file -->
+    <section name="reportCenter" type="WebUI.Helpers.ReportCenterConfiguration" requirePermission="false"/>
+  </configSections>
+  <connectionStrings>
+    <add name="JenzabarEntities" connectionString="metadata=res://*/Jenzabar.csdl|res://*/Jenzabar.ssdl|res://*/Jenzabar.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=srvvdb80\inssqldev;initial catalog=TmsEPrd;User ID=usrProcesos;Password=123456;multipleactiveresultsets=True;App=SiteProfesores&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+
+  <reportCenter>
+    <reports>
+      <add id="1" name="Asistencia de Estudiantes Modulo Profesores" visualization="Asistencia de Estudiantes" direccion="/JNZ/RE/Asistencia de Estudiantes Modulo Profesores" />
+      <add id="2" name="Acta de Calificaciones Finales Profesores" visualization="Acta de Calificaciones Finales" direccion="/JNZ/RE/Acta de Calificaciones Finales Profesores" />
+      <add id="3" name="Listado de Estudiantes por Seccion" visualization="Listado de Correos de Estudiantes" direccion="/JNZ/RE/Listado de Estudiantes por Seccion" />
+      
+      <add id="4" name="historial academico estudiantil" visualization="Historial Académico Estudiantil" direccion="/JNZ/RE/historial academico estudiantil" />
+      <add id="5" name="historial academico segun pensum" visualization="Record Según Pensum" direccion="/JNZ/RE/Historial Académico Según Pensum " />
+      <add id="6" name="oferta trimestral preselecion" visualization="Oferta Trimestral Preseleción" direccion="/JNZ/RE/Oferta Trimestral Preselección " />
+      <add id="7" name="oferta trimestral" visualization="Oferta Trimestral" direccion="/JNZ/RE/Oferta Trimestral" />
+      <add id="8" name="Reporte de Preseleccion" visualization="Volante de Preselección" direccion="/JNZ/RE/Volante de Preseleccion" />
+      <add id="9" name="Reporte de Selección" visualization="Volante de Selección" direccion="/JNZ/RE/Volante de Seleccion" />
+    </reports>
+  </reportCenter>
+  
+  <appSettings>
+    <add key="webpages:Version" value="1.0.0.0"/>
+    <add key="ClientValidationEnabled" value="true"/>
+    <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+
+
+    <add key="rptUser" value="usrRetiro" />
+    <add key="rptPassword" value="QA@{2~x=+\?~" />
+    <add key="rptDomain" value="intecadm" />
+    <add key="rptServer" value="http://srvvdb01/reportserver" />
+    <add key="SMTPServer" value="correo.intec.edu.do" />
+    <add key="UrlEvaluacion" value="http://intisstest01:8086/"/>
+    
+  </appSettings>
+
+  <system.web>
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <add assembly="System.Web.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Routing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+        <add assembly="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+      </assemblies>
+      <buildProviders>
+        <add extension=".rdlc" type="Microsoft.Reporting.RdlBuildProvider, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+      </buildProviders>      
+    </compilation>
+
+    <authentication mode="Forms">
+      <forms loginUrl="~/Account/LogOn" timeout="2880" />
+    </authentication>
+
+    <sessionState mode="InProc" timeout="30" />
+
+    <membership>
+      <providers>
+        <clear/>
+        <add name="AspNetSqlMembershipProvider" type="System.Web.Security.SqlMembershipProvider" connectionStringName="ApplicationServices"
+             enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="false"
+             maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10"
+             applicationName="/" />
+      </providers>
+    </membership>
+
+    <profile>
+      <providers>
+        <clear/>
+        <add name="AspNetSqlProfileProvider" type="System.Web.Profile.SqlProfileProvider" connectionStringName="ApplicationServices" applicationName="/" />
+      </providers>
+    </profile>
+
+    <roleManager enabled="false">
+      <providers>
+        <clear/>
+        <add name="AspNetSqlRoleProvider" type="System.Web.Security.SqlRoleProvider" connectionStringName="ApplicationServices" applicationName="/" />
+        <add name="AspNetWindowsTokenRoleProvider" type="System.Web.Security.WindowsTokenRoleProvider" applicationName="/" />
+      </providers>
+    </roleManager>
+
+    <pages>
+      <namespaces>
+        <add namespace="System.Web.Helpers" />
+        <add namespace="System.Web.Mvc" />
+        <add namespace="System.Web.Mvc.Ajax" />
+        <add namespace="System.Web.Mvc.Html" />
+        <add namespace="System.Web.Routing" />
+        <add namespace="System.Web.WebPages"/>
+      </namespaces>
+    </pages>
+    <httpHandlers>
+      <add verb="*" path="Reserved.ReportViewerWebControl.axd" type = "Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </httpHandlers>
+    <customErrors mode="RemoteOnly">      
+    </customErrors>
+  </system.web>
+
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false"/>
+    <modules runAllManagedModulesForAllRequests="true"/>
+    <handlers>
+      <add name="ReportViewerWebControlHandler" preCondition="integratedMode" verb="*" path="Reserved.ReportViewerWebControl.axd" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </handlers>
+  </system.webServer>
+
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>  
+</configuration>

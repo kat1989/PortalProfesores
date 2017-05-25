@@ -1,0 +1,15 @@
+﻿@{
+    string id = WebUI.Helpers.WrapperSession.ObtenerInstancia().Id;
+    int val = 0;
+    int.TryParse(id, out val);
+    var profesor = new DataAccess.ProfesorRepository().Find(val).NombreCompleto;    
+}
+<div class="topbar">		
+    <div class="toogle-menu">
+        <a href="#" class="top-icon uk-icon-cog uk-float-right"></a>
+        <ul>
+            <li class="uk-icon-lock"><a href="@Url.Action("Logout","Main")" class="black-font">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+    <span class="aligh-right color-white">@profesor</span>
+</div>

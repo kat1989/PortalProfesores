@@ -1,0 +1,146 @@
+﻿@using DataAccess.Model
+@model WebUI.Helpers.PageData<DataAccess.Model.Asignatura>
+    @{
+        Layout = "~/Views/Shared/_ContentLayout.cshtml";
+    }
+    @section css{
+        <link href="@Url.Content("~/Content/tooltipster.css")" rel="stylesheet" type="text/css" />
+       <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
+    }
+    @section scripts{
+        <script src="/Scripts/jquery.tooltipster.min.js"></script>
+        <script src="/Scripts/jquery-ui-timepicker-addon.js"></script>
+        <script src="/Scripts/RevisionArea/index.js"></script>
+    }
+    <div class="content-header">
+        <div class="topbar">
+            <div>
+                <div class="toogle-menu">
+                    <a href="#" class="top-icon uk-icon-cog"></a>
+                    <ul>
+                        <li class="uk-icon-lock"><a href="@Url.Action("Logout","Usuario")" class="black-font">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+                <span class="aligh-right color-white">Katherine fermin castillo</span>
+                @*<span class="aligh-right color-white">@(Model.Nombre + " " + Model.SegundoNombre + " " + Model.Apellido)</span>*@
+            </div>
+        </div>
+        <div class="uk-width-1-1 revision-Header">
+            <div class="uk-float-right font-bold-400 light-border revision-legend">
+                <span class="uk-vertical-align-middle padding-7px ">1-2 dias</span>
+                <span class="numberCircle bg-color-normal">0</span>
+                <span class="uk-vertical-align-middle padding-7px">>></span>
+                <span class="uk-vertical-align-middle padding-7px ">2-3 dias</span>
+                <span class="numberCircle bg-color-modarate">1</span>
+
+                <span class="uk-vertical-align-middle padding-7px">>></span>
+                <span class="uk-vertical-align-middle padding-7px ">Mas de 4 dias</span>
+                <span class="numberCircle bg-color-critic">1</span>
+            </div>
+            <h1 class="section-title light-bottom-border">REVISION DE CALIFICACIONES</h1>
+
+        </div>
+    </div>
+    <div class="parameter-container">
+        <div class="parameter parameter-revision separator">
+            <label class="font-bold-600"><span>Ano</span></label>
+            @Html.DropDownList("dplAnos", ((List<ElementoFiltro>)@ViewBag.Anos).Select(
+
+        a => new SelectListItem
+        {
+            Text = a.Descripcion,
+            Value = a.Codigo,
+            Selected = !string.IsNullOrEmpty(a.ValorDefecto)
+
+        }
+             ), "Todos", new { @class = "font-bold-400" })
+
+
+        </div>
+        <div class="parameter parameter-revision separator">
+            <label class="font-bold-600"><span>Trimestre</span></label>
+           
+            @Html.DropDownList("dplTrimesters", ((List<ElementoFiltro>)@ViewBag.Trimestres).Select(
+
+        a => new SelectListItem
+        {
+            Text = a.Descripcion,
+            Value = a.Codigo,
+            Selected = !string.IsNullOrEmpty(a.ValorDefecto)
+        }
+                      ), "Todas", new { @class = "font-bold-400 max-width-select" })
+
+
+
+
+
+
+        </div>
+
+        <div class="parameter parameter-revision separator">
+            <label class="font-bold-600"><span>Asignatura</span></label>
+            @Html.DropDownList("dplAsignatura", ((List<ElementoFiltro>)@ViewBag.Asignaturas).Select(
+
+                a => new SelectListItem
+                {
+                    Text = a.Descripcion,
+                    Value = a.Codigo
+
+                }
+                ), "Todas", new { @class = "font-bold-400 max-width-select" })
+
+
+
+
+
+
+        </div>
+        <div class="parameter parameter-revision separator">
+            <label class="font-bold-600"><span>Profesor</span></label>
+            @Html.DropDownList("dplProfesores", ((List<ElementoFiltro>)@ViewBag.Profesores).Select(
+
+        a => new SelectListItem
+        {
+            Text = a.Descripcion,
+            Value = a.Codigo
+
+        }
+                      ), "Todos", new { @class = "font-bold-400 max-width-select" })
+
+
+
+
+
+
+        </div>
+        <div class="parameter parameter-revision">
+            <label class="font-bold-600"><span>Estado</span></label>
+            @Html.DropDownList("dplEstados", ((List<EstadoRevision>)@ViewBag.Estados).Select(
+
+        a => new SelectListItem
+        {
+            Text = a.Descripcion,
+            Value = a.IdEstado.ToString()
+
+        }
+                      ), "Todos", new { @class = "font-bold-400 max-width-select" })
+
+
+        </div>
+
+    </div>
+
+    <div id="divRevisionList" class="section">
+        <div class="uk-icon-external-link section_header">
+            <span class="total-filas">@Model.TotalRows</span><span>
+                Resultados | Filtrado por: -Trimestre: <span class="trimester-filter">Agosto - Octubre</span>
+                <span class="year-filter"></span> - Asignatura:<span class="subject-filter"></span>
+            </span>
+
+        </div>
+        <div id="revisionesContainer">
+            @Html.Partial("_AsignaturasRevision")
+        </div>
+
+    </div>
+

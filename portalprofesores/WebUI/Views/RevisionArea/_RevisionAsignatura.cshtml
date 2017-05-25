@@ -1,0 +1,163 @@
+﻿@using System.ComponentModel
+@model DataAccess.Model.Revision
+  
+<tr style="display: none" class="tabsContainer" data-revisionid="@Model.RevisionId">
+    @{
+        var disabledTab = Model.IdEstado > 2 ? "" : "uk-disabled";
+        var disabledCambioNota = Model.IdEstado == 7 ? "" : "disabled";
+    }
+    <td colspan="8">
+
+        <ul class="uk-tab" data-uk-tab="{connect:'#tab-content-@Model.RevisionId'}">
+            <li class="uk-active revision-asignacion"><a href="">Asignación de cita</a></li>
+            <li class="@disabledTab revision-decision"><a href="">Decisión de revisión</a></li>
+
+        </ul>
+        <ul id="tab-content-@Model.RevisionId" class="uk-switcher uk-margin">
+            <li class=" margin-left-10px">
+                @Html.Hidden("docenteId_"+Model.RevisionId,Model.DocenteId)
+                @Html.Hidden("representanteId_" + Model.RevisionId, Model.RepresentanteId)
+                @Html.Hidden("estadoId_" + Model.RevisionId, Model.IdEstado)
+                <div>
+                    <span class="font-bold-600">Trimestre:</span>
+                    <span>Agosto-Octubre 2014</span>
+                </div>
+                <div>
+                    
+                    <div class="div-1">
+                        <div class="row  margin-top-15px">
+                            <div class="col-1">
+                                <span class="font-bold-400 ">Docente asignado:</span>
+                            </div>
+                            <div class="col-2">
+                                <select id="@Html.Raw("dplProfesores_"+Model.RevisionId)" class="bg-white light-border">
+                                    <option>Seleccione</option>
+                                </select>
+                            
+                            </div>
+                           
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1">
+                                <span class="font-bold-400">Representante:</span>
+
+                            </div>
+                            <div class="col-2">
+                                <select id="@Html.Raw("dplRepresentantes_"+Model.RevisionId)" class="bg-white light-border">
+                                    <option>Seleccione</option>
+                                </select>
+                            </div>
+                         
+                        </div>
+                        <div class="row">
+                            <div class="col-1">
+                                <span class="font-bold-400">Lugar disponible:</span>
+                            </div>
+                            <div class="col-2">
+                                <input type="text" id="@Html.Raw("txtLugarDisponible_"+Model.RevisionId)" value="@Model.LugarDisponible" class="light-border" />
+                              
+                            </div>
+                        </div>
+                    </div>
+              
+                    <div class="div-2">
+                        <div class="row margin-top-15px">
+                        
+                            <div class="col-1">
+                                <span class="font-bold-400 ">Fecha de cita:</span>
+
+                            </div>
+                            <div class="col-2">
+                                <input type="text" id="@Html.Raw("txtFechaCita_"+Model.RevisionId)" value="@Model.FechaCita" class="light-border date-picker" />
+                        
+
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+
+
+            </li>
+            <li class="row-3 margin-left-10px">
+                <div>
+                    <div class="div-1">
+                        <div class="row ">
+                            <div class="col-1">
+                                <span class="font-bold-400 ">Asistencia:</span>
+                            </div>
+                            <div class="col-2">
+                                <input type="checkbox" class="bg-white light-border"  @Html.Raw(Model.ProfesorAsistio==true?"checked":"") id="@Html.Raw("chkProfesor_"+Model.RevisionId)" /><span>Profesor</span>
+                                <input type="checkbox" class="bg-white light-border" @Html.Raw(Model.RepresentanteAsistio == true ? "checked" : "")  id="@Html.Raw("chkRepresentante_"+Model.RevisionId)" /> <span>Representante</span>
+                                <input type="checkbox" class="bg-white light-border" @Html.Raw(Model.EstudianteAsistio == true ? "checked" : "") id="@Html.Raw("chkEstudiante_"+Model.RevisionId)" /><span>Estudiante</span>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1">
+                                <span class="font-bold-400 ">Comentarios:</span>
+                            </div>
+                            <div class="col-2">
+                                <textarea id="@Html.Raw("txtComentarios_"+Model.RevisionId)"  class="bg-white light-border">@Model.ComentarioAcedemcio</textarea>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="div-2">
+                        <div class="row">
+                            <div class="col-1">
+                                <span class="font-bold-400 ">Cambios de Revisión:</span>
+
+                            </div>
+                            <div class="col-2">
+                                <select id="@Html.Raw("dplCambios_"+Model.RevisionId)" class="bg-white light-border select-status-change">
+                                    <option value="0">SELECCIONE</option>
+                                    <option value="7">PROCEDE CAMBIO</option>
+                                    <option value="6">CERRADO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1">
+                                <span class="font-bold-400 ">Cambio en la calificación:</span>
+
+                            </div>
+                            <div class="col-2">
+                                <input id="@Html.Raw("txtValorNota_"+Model.RevisionId)" value="@Model.NotaAsignada" type="text" class="bg-white light-border assigned-grade_value" @disabledCambioNota />
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1">
+                                <span class="font-bold-400 ">Cambio en la nota final:</span>
+
+                            </div>
+                            <div class="col-2">
+                                <input id="@Html.Raw("txtCodigoNota_"+Model.RevisionId)" value="@Model.CodigoNota" type="text" class="bg-white light-border" readonly />
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                </div>
+            </li>
+        </ul>
+
+        <div class="uk-float-right margin-top-15px">
+
+            <button  class="bg-black no-border button-square btn-guardar-revision"> PROCEDER</button>
+            <button class="bg-black no-border button-square btn-imprimir-reporte"> IMPRIMIR SOLICITUD REVISION</button>
+            <button class="uk-margin-right bg-white light-border button-square btn-cancelar-revision"> CANCELAR</button>
+
+        </div>
+    </td>
+   
+
+       
+
+</tr>
+

@@ -1,0 +1,84 @@
+﻿@using DataAccess.Model
+@model WebUI.Helpers.PageData<DataAccess.Model.Asignatura>
+    @Html.HiddenFor(a=>a.TotalRows)
+                                 <div class="section_info">
+                                     <table id="tblRevisiones" class="uk-width-1-1 accordion-tabla ">
+                                         <thead>
+                                             <tr>
+
+                                                 <th class="font-bold-400">ID Estudiante</th>
+                                                 <th class="font-bold-400">Clave Asignatura</th>
+                                                 <th class="font-bold-400">Seccion</th>
+                                                 <th class="font-bold-400">Calif.</th>
+                                                 <th class="font-bold-400">Fecha Clave</th>
+                                                 <th class="font-bold-400">Estados</th>
+
+                                             </tr>
+                                         </thead>
+
+                                         <tbody class="title">
+
+                                             @* ReSharper disable once NotAccessedVariable *@
+                                             @foreach (var item in Model.Data)
+                                             {
+
+                                                 var estatusStyle=string.Empty;
+                                                 var fontCssStyle = item.IdEstadoRevision == 6 ? "color-disabled font-bold-400 uppercase" :
+                                                     "color-black font-bold-400 uppercase";
+                                                 if (item.IdEstadoRevision == 2)
+                                                 {
+                                                     estatusStyle = item.EstadoSolicitud == EstadosSolictudRevision.Normal ? "revision-status-normal" : 
+                                                         (item.EstadoSolicitud == EstadosSolictudRevision.Moderado ? "revision-status-modarate" : "revision-status-critic");
+                                                 }
+                                                 var tooltipClass = item.IdEstadoRevision<7?("tooltip " + (item.IdEstadoRevision == 5 ? "estatus-declined"
+                                                     : (item.IdEstadoRevision == 6 ? "estatus-closed" : (item.IdEstadoRevision == 2 ? "estatus-requested" : "estatus-scheduled")))):"";
+                                                 <tr>
+                                                     <td class="@fontCssStyle @estatusStyle tooltip">
+                                                         @item.IdEstudiante
+                                                     </td>
+                                                     <td class="@Html.Raw(fontCssStyle)">
+                                                         @item.Codigo
+                                                     </td>
+                                                     <td class="uk-text-center @fontCssStyle">
+                                                         @item.Seccion
+                                                     </td>
+                                                     <td class="uk-text-center @fontCssStyle">
+                                                         @item.Calificacion
+                                                     </td>
+                                                     <td class="uk-text-center @fontCssStyle">
+                                                         @item.FechaClave.ToString("dd/MM/yyyy hh:mm:ss tt")
+                                                     </td>
+                                                     <td>
+                                                         <button class="large-button-square bg-white light-border @fontCssStyle @tooltipClass" 
+                                                                 title="@Html.Raw(item.EstadoRevision.Mensaje)" data-idstatus="@Html.Raw(item.IdEstadoRevision.ToString())">
+                                                             @item.EstadoRevision.Descripcion
+
+                                                         </button>
+                                                     </td>
+
+                                                 </tr>
+
+
+                                             }
+                                         </tbody>
+
+                                     </table>
+
+                                     <div class="bg-white paginador">
+                                         <div class="uk-float-right">
+                                             @for (int i = 1; i <= Model.NumberOfPages; i++)
+                                             {
+                                                 if (i == Model.CurrentPage)
+                                                 {
+                                                     <span class="page font-bold-400 current-page">@i</span>
+                                                 }
+                                                 else
+                                                 {
+                                                     <a class="page font-bold-400" href="">@i</a>
+                                                 }
+                                             }
+
+                                         </div>
+                                       
+                                     </div>
+                                 </div>

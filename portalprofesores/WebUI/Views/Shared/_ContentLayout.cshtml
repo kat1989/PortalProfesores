@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dataReporte = WebUI.Helpers.WrapperReporte.GetInstance();
+}
+
+<div id="container" class="uk-grid">
+	<nav class="uk-width-2-10 auto-height">
+		<h1 class="section-title color-white uk-hidden-small">Opciones</h1>
+		<ul class="menu uk-nav uk-nav-parent-icon">
+			<li><a class="uk-icon-tasks" href="#"><span class="uk-hidden-small">Publicación de Calificaciones</span></a></li>
+            <li><a class="uk-icon-share-square-o" href="#"><span class="uk-hidden-small">Auto-Evaluación</span></a></li>
+			<li id="report-slider"><a class="uk-icon-bar-chart-o" href="#">
+                <span class="uk-hidden-small">Reportes</span>
+                <span class="uk-icon-chevron-down uk-float-right"></span>
+            </a></li>            
+            <ul id="report-data" style="display:none;">
+                <li> <a class="uk-icon-users" href="@Url.Action("Index", "Reporte", new { r = "1" })">
+                    <span class="uk-hidden-small">@dataReporte.ObtenerDataReporte("1").Visualization</span></a></li>
+                <li> <a class="uk-icon-book" href="@Url.Action("Index", "Reporte", new { r = "2" })">
+                    <span class="uk-hidden-small">@dataReporte.ObtenerDataReporte("2").Visualization</span></a></li>
+                <li> <a class="uk-icon-book" href="@Url.Action("Index", "Reporte", new { r = "3" })">
+                    <span class="uk-hidden-small">@dataReporte.ObtenerDataReporte("3").Visualization</span></a></li>
+
+                @if (WebUI.Helpers.WrapperSession.ObtenerInstancia().TipoProfesor == "C")
+                {
+                    <li> <a class="uk-icon-book" href="@Url.Action("Index", "Reporte", new { r = "4" })">
+                        <span class="uk-hidden-small">@dataReporte.ObtenerDataReporte("4").Visualization</span></a></li>
+                    <li> <a class="uk-icon-book" href="@Url.Action("Index", "Reporte", new { r = "5" })">
+                        <span class="uk-hidden-small">@dataReporte.ObtenerDataReporte("5").Visualization</span></a></li>
+                    <li> <a class="uk-icon-book" href="@Url.Action("Index", "Reporte", new { r = "6" })">
+                        <span class="uk-hidden-small">@dataReporte.ObtenerDataReporte("6").Visualization</span></a></li>
+                    <li> <a class="uk-icon-book" href="@Url.Action("Index", "Reporte", new { r = "7" })">
+                        <span class="uk-hidden-small">@dataReporte.ObtenerDataReporte("7").Visualization</span></a></li>
+                    <li> <a class="uk-icon-book" href="@Url.Action("Index", "Reporte", new { r = "8" })">
+                        <span class="uk-hidden-small">@dataReporte.ObtenerDataReporte("8").Visualization</span></a></li>
+                    <li> <a class="uk-icon-book" href="@Url.Action("Index", "Reporte", new { r = "9" })">
+                        <span class="uk-hidden-small">@dataReporte.ObtenerDataReporte("9").Visualization</span></a></li>
+                }
+            </ul>            
+		</ul>
+	</nav>
+    <div id="content" class="uk-width-8-10 auto-height">
+        @RenderSection("css", false)
+        @RenderSection("scripts",false)
+        @RenderBody()
+    </div>
+</div>

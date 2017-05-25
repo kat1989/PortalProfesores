@@ -1,0 +1,82 @@
+﻿@model DataAccess.Model.Estudiante
+@{
+    ViewBag.Title = "Sistema de Información Académica";
+}
+    <!-- Body -->
+    <td colspan="2" align="center">
+        <form name="_ctl0" method="post" action="@Url.Action("Login","Main")" id="_ctl0" class="wrapper">
+            <input type="hidden" name="__VIEWSTATE" value="dDwtMTM1NzYxMDg2NTt0PDtsPGk8NT47aTw3Pjs+O2w8dDxwPGw8aW5uZXJodG1sOz47bDxcPGZvbnQgY29sb3I9cmVkXD5cPC9mb250XD47Pj47Oz47dDxwPGw8VGV4dDs+O2w8XDwvdGRcPiAgXDwvdHJcPiAgXDx0clw+IFw8IS0tIEZvb3RlciAtLVw+ICAgIFw8dGQgY29sc3Bhbj0iMiJcPiAgICBcPHRhYmxlIGNsYXNzPSJ3cmFwcGVyIiB3aWR0aD0iOTgwIiBib3JkZXI9IjAiIGFsaWduPSJjZW50ZXIiIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCJcPiAgXDx0clw+ICAgIFw8dGQgY29sc3Bhbj0iMiIgYWxpZ249ImNlbnRlciIgdmFsaWduPSJ0b3AiIGNsYXNzPSJwYWdlRm9vdGVyIGFDaGlxdWl0b3MiXD4JCVw8aHIgY2xhc3M9ImhyUGFnZUZvb3RlciIgL1w+ICAgICAgICBJbnN0aXR1dG8gVGVjbm9sJm9hY3V0ZVw7Z2ljbyBkZSBTYW50byBEb21pbmdvIC0gSU5URUMgICAgICAgIFw8IS0tIE1FTlUgUElFIERFIFBBR0lOQSAJCVw8YSBocmVmPSJqYXZhc2NyaXB0OndpbmRvdy5sb2NhdGlvbi5ocmVmPV9zaXRlVXJsICsgJz9vPWFjZXJjYSciXD5Tb2JyZSBJTlRFQ1w8L2FcPiAgICAgICAgXDxpbWcgc3JjPSIvYXBwaW50ZWMubmV0L2ltYWdlcy9zZXBhcmF0b3IuZ2lmIiBhbHQ9IiIgd2lkdGg9IjMiIGhlaWdodD0iMTMiIC9cPgkJXDxhIGhyZWY9ImphdmFzY3JpcHQ6d2luZG93LmxvY2F0aW9uLmhyZWY9X3NpdGVVcmwgKyAnbz1hZG1pc2lvbmVzMiciXD5BZG1pc2lvbmVzXDwvYVw+ICAgICAgICBcPGltZyBzcmM9Ii9hcHBpbnRlYy5uZXQvaW1hZ2VzL3NlcGFyYXRvci5naWYiIGFsdD0iIiB3aWR0aD0iMyIgaGVpZ2h0PSIxMyIgL1w+CQlcPGEgaHJlZj0iamF2YXNjcmlwdDp3aW5kb3cubG9jYXRpb24uaHJlZj1fc2l0ZVVybCArICdvPWVzdHVkaWFudGVzMiciXD5Fc3R1ZGlhbnRlc1w8L2FcPiAgICAgICAgXDxpbWcgc3JjPSIvYXBwaW50ZWMubmV0L2ltYWdlcy9zZXBhcmF0b3IuZ2lmIiBhbHQ9IiIgd2lkdGg9IjMiIGhlaWdodD0iMTMiIC9cPgkJXDxhIGhyZWY9ImphdmFzY3JpcHQ6d2luZG93LmxvY2F0aW9uLmhyZWY9X3NpdGVVcmwgKyAnbz1udWVzdHJhc0NhcnJlcmFzJyJcPkNhcnJlcmFzIEltcGFydGlkYXNcPC9hXD4gICAgICAgIFw8aW1nIHNyYz0iL2FwcGludGVjLm5ldC9pbWFnZXMvc2VwYXJhdG9yLmdpZiIgYWx0PSIiIHdpZHRoPSIzIiBoZWlnaHQ9IjEzIiAvXD4JCVw8YSBocmVmPSJqYXZhc2NyaXB0OndpbmRvdy5sb2NhdGlvbi5ocmVmPV9zaXRlVXJsICsgJ289cHJvZmVzb3JlczInIlw+UHJvZmVzb3Jlc1w8L2FcPiAgICAgICAgXDxpbWcgc3JjPSIvYXBwaW50ZWMubmV0L2ltYWdlcy9zZXBhcmF0b3IuZ2lmIiBhbHQ9IiIgd2lkdGg9IjMiIGhlaWdodD0iMTMiIC9cPgkJXDxhIGhyZWY9ImphdmFzY3JpcHQ6d2luZG93LmxvY2F0aW9uLmhyZWY9X3NpdGVVcmwgKyAnbz1pbnZlc3RpZ2FjaW9uJyJcPkludmVzdGlnYWNpw7NuIHkgVmluY3VsYWNpw7NuXDwvYVw+ICAgICAgICBcPGltZyBzcmM9Ii9hcHBpbnRlYy5uZXQvaW1hZ2VzL3NlcGFyYXRvci5naWYiIGFsdD0iIiB3aWR0aD0iMyIgaGVpZ2h0PSIxMyIgL1w+CQlcPGEgaHJlZj0iamF2YXNjcmlwdDp3aW5kb3cubG9jYXRpb24uaHJlZj1fc2l0ZVVybCArICdvPWJpYmxpb3RlY2EyJyJcPkJpYmxpb3RlY2FcPC9hXD4gICAgICAgIFw8aW1nIHNyYz0iL2FwcGludGVjLm5ldC9pbWFnZXMvc2VwYXJhdG9yLmdpZiIgYWx0PSIiIHdpZHRoPSIzIiBoZWlnaHQ9IjEzIiAvXD4JCVw8YSBocmVmPSJqYXZhc2NyaXB0OndpbmRvdy5sb2NhdGlvbi5ocmVmPV9zaXRlVXJsICsgJ289ZWdyZXNhZG9zJyIgdGFyZ2V0PSJfYmxhbmsiXD5FZ3Jlc2Fkb3NcPC9hXD4gICAgICAgIC0tXD4gICAgXDwvdGRcPiAgXDwvdHJcPlw8L3RhYmxlXD4gICAgXDwvdGRcPiAgXDwvdHJcPlw8L3RhYmxlXD5cPCEtLSBcPC9ib2R5XD5cPC9odG1sXD4gLS1cPjs+Pjs7Pjs+Pjs+XUw5zfxgZ+TAQ041yzWviful3u4=" />
+
+            <table border="0" align="center" cellspacing="0" cellpadding="0">
+
+                <tr>
+                    <td width="100%" valign="top">
+                        <table id="table47" border="0" align="center" cellspacing="0" cellpadding="0" width="300px">
+
+                            <tr>
+                                <td align="center">
+                                    <table width="300px" border="0" cellpadding="0" cellspacing="0" bordercolor="#111111" class="panelesLogin" style="BORDER-COLLAPSE: collapse">
+
+                                        <tr>
+                                            <th>INICIAR SESIÓN</th>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%"><img border="0" src="../../Content/themes/base/images/spacer.gif" width="10" height="3" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%">
+                                                <center>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" height="10">
+                                                        <tr>
+                                                            <td width="49%" align="right" class="z" style="PADDING-BOTTOM: 3px; PADDING-TOP: 0px">Matrícula</td>
+                                                            <td width="51%">@Html.TextBox("txtUserName")  </td>
+                                                            <td>
+                                                                <span id="msgMatricula" class="message">
+                                                                    Utilizar el formato 1999-1234
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="49%" align="right" class="z" style="PADDING-BOTTOM: 3px; PADDING-TOP: 0px">ID</td>
+                                                            <td width="51%">@Html.TextBox("txtID")  </td>
+                                                            <td>
+                                                                <span id="msgID" class="message">
+                                                                    A partir de Febrero 2014 se utilizara exclusivamente el ID, como reemplazo de la matricula
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right" class="z" style="PADDING-BOTTOM: 3px; PADDING-TOP: 0px">PIN / Password</td>
+                                                            <td>@Html.Password("txtUserPass")</td>
+                                                            <td><span id="msgPin" class="message">test</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2" align="center">
+                                                                <input type="submit" name="btnIniciar" value="Entrar" onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="btnIniciar" class="myButtom" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <p class="error">@ViewBag.Error</p>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- class="bordeAbajo"> -->
+                                    &nbsp;
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div id="msgError"><font color=red></font></div>
+    </td>
+</tr>
+<tr> <!-- Footer -->    <td colspan="2">    <table class="wrapper" width="980" border="0" align="center" cellpadding="0" cellspacing="0">  <tr>    <td colspan="2" align="center" valign="top" class="pageFooter aChiquitos">		<hr class="hrPageFooter" />        Instituto Tecnol&oacute;gico de Santo Domingo - INTEC        <!-- MENU PIE DE PAGINA 		<a href="javascript:window.location.href=_siteUrl + '?o=acerca'">Sobre INTEC</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=admisiones2'">Admisiones</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=estudiantes2'">Estudiantes</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=nuestrasCarreras'">Carreras Impartidas</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=profesores2'">Profesores</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=investigacion'">Investigación y Vinculación</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=biblioteca2'">Biblioteca</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=egresados'" target="_blank">Egresados</a>        -->    </td>  </tr></table>    </td>  </tr>
+</table><!-- </body></html> -->

@@ -1,0 +1,111 @@
+﻿#dialog2
+{
+    width: 400px;
+    height: 200px;
+    overflow: scroll;
+    border: 1px solid #ccc;
+    background: #eee;
+    margin: 5px 0;
+    padding: 10px 20px;
+}
+#dialog1
+{
+    width: 400px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background: #eee;
+    margin: 5px 0;
+    padding: 10px 20px;
+}
+
+.msgError
+{
+    border: solid 1px #DEDEDE;
+    background: #FFFFCC;
+    color: #222222;
+    padding: 4px;
+    text-align: center;
+}
+
+div.banner
+{
+    margin: 13 15;
+    font-size: 80% font-weight: bold;
+    line-height: 2.5;
+    text-align: left;
+    position: absolute;
+    top: 13em;
+    right: auto;
+    width: 21em;
+    left: 4em;
+}
+
+
+input.asLabel
+{
+    border: none;
+    background-color: #fff;
+    background: transparent;
+    width: 100%;
+    text-align:center;
+}
+
+.noDisplay
+{
+    display: none;
+}
+
+
+
+.ColNormal td, .tableHeader
+{
+    font-family: Verdana;
+    color: Black;
+    font-size: 12px;
+    text-align:center;
+}
+
+.tableHeader
+{
+    font-weight: bold;
+    color: White;
+}
+
+.error
+{
+    color: Red;
+}
+
+.message
+{
+    position:absolute;
+    width:200px;
+    color:green;
+    display:none;
+}
+
+.page_title
+{
+    font-weight: bold;
+    font-size:large;
+}
+
+#dialog1 label
+{
+    color:#000;
+}
+
+.order
+{
+    text-align:left;
+}
+.internal_ul
+{
+    padding: 0 0 0 2px !important;
+    position: relative !important;
+    left: 35px !important;
+    color: #BEBEBE !important;
+    display: list-item !important;
+    list-style-type: disc !important;
+    text-align:left;
+}    

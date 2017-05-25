@@ -1,0 +1,62 @@
+﻿@model DataAccess.Model.Estudiante
+
+@{
+    ViewBag.Title = "Acceso profesoral a procesos académicos";
+}
+
+<div class="login-container">
+    <h1>Acceso a Sistema</h1>
+    @{
+        bool timeout = false;
+        if(TempData["Timeout"] != null ) {
+            bool.TryParse(TempData["Timeout"].ToString(), out timeout);
+        }
+                   
+        if(timeout){
+            <div class="uk-alert uk-alert-danger" data-uk-alert>
+                <a href="" class="uk-alert-close uk-close"></a>
+                <p>Su Sesión ha expirando por inactividad. Favor iniciar sección nuevamente</p>
+            </div>                
+        }
+    }
+    <div class="login">
+	    <h3><span class="uk-icon-lock small-right-margin"></span>Iniciar Sesión</h3>
+	    <div class="login-content uk-text-right">
+        <div id="test"></div>
+
+        @using (Html.BeginForm("Login", "Main", FormMethod.Post))
+        {
+			    <div class="control">
+                    @Html.Label("ID")
+                    @Html.TextBox("txtID", null, new { @class = "light-border" })
+			    </div>
+            if (!String.IsNullOrEmpty(ViewBag.Error))
+            {
+                    <div class="float-error">
+                        <p>@ViewBag.Error</p>
+                    </div>
+            }      
+			    <div class="control">
+                    @Html.Label("Contraseña")
+                    @Html.Password("txtUserPass", null, new { @class = "light-border" })
+			    </div>			
+			    <button id="btnEntrar" class="bg-black no-border button-square uk-icon-arrow-circle-right"> Accesar</button>
+        }
+	    </div>
+    </div>
+</div>
+<div class="ie7">
+    <img src="../../Content/themes/base/images/icon-not-ie.jpg" />
+    <p>
+        Para poder utilizar este site, debe actualizar su version de internet explorer.
+        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Click aqui para actualizar</a>
+    </p>    
+</div>
+
+<div class="noscript">
+    <img src="../../Content/themes/base/images/icon-not-ie.jpg" />
+    <p>
+        Para poder utilizar este site, su navegador debe tener habilitado javascript.
+        <a href="http://activatejavascript.org/en/instructions/ie#instructions">Haga click aqui para aprender como habilitarlo.</a>
+    </p>    
+</div>

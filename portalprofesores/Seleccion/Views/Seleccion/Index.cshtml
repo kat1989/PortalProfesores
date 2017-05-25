@@ -1,0 +1,410 @@
+﻿@model DataAccess.Model.EstudianteSeleccion
+
+@if (!String.IsNullOrEmpty(ViewBag.ServerError))
+{
+    <text>
+    <script type="text/javascript">
+        alert("@ViewBag.ServerError");
+    </script>
+    </text>
+}
+           
+<tr>
+    <!-- Variables -->
+    <td>
+    </td>
+    <td align="right" id="IdEstudiante">@Model.ID</td><br>
+</tr>
+<tr>
+    <!-- Menu -->
+    <td colspan="2" align="right" class="navBar" valign="top">
+        <div class="gcButtons" id="gcButtons">
+            <div class="gcInnerBorder">
+                <table cellspacing="0" cellpadding="0" width="1" border="0">
+                    <tbody>
+                        <tr>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr>
+    <!-- Body -->
+    <td colspan="2" align="center">
+        <form name="_ctl0" method="post" action="MantPreSeleccion.aspx" id="_ctl0" class="wrapper">
+        <table cellspacing="0" cellpadding="0" border="0" align="center">
+            <tbody>
+                <tr>
+                    <td valign="top" align="middle" width="100%" rowspan="2">
+                        <table class="MantForm">
+                            <tbody>
+                                <tr>
+                                    <td align="middle" class="OpcTopMenu">
+                                        <strong>INFORMACIÓN DEL ESTUDIANTE</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="subpanelesTh">
+                                        Usted debe pasar por caja para formalizar su inscripción en los primeros 4 días,
+                                        a partir de su selección,aun si es un estudiante BECADO con balance cero.
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td align="middle">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="top" class="LeftSideButtonsApp" width="10" border="0">
+                                                        <input type="button" name="btnTerminar" value="Grabar" id="btnTerminar" class="myButtom"
+                                                            onclick="javascript:window.location.href = '@Url.Action("Guardar", "Seleccion", new { estudiante = @Model.ID})'">
+                                                        <br>
+                                                        <input type="button" name="btnSalirSin" value="Salir sin Grabar" id="btnSalirSin"
+                                                            class="myButtom" onclick="salir();">
+                                                    </td>
+                                                    <td valign="top" align="middle" border="0">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="right">
+                                                                        <strong>ID</strong>
+                                                                    </td>
+                                                                    <td nowrap="nowrap" width="200" bgcolor="#e0e0e0">
+                                                                        <span id="lblMatricula" class="TxtNormalU">@Model.ID</span>&nbsp;
+                                                                    </td>
+                                                                    <td align="right">
+                                                                        <strong>Estudiantes</strong>
+                                                                    </td>
+                                                                    <td nowrap="nowrap" width="200" bgcolor="#e0e0e0">
+                                                                        <span id="lblPriNombre" class="TxtNormalU">@Model.Nombre</span>&nbsp;<span id="lblSegNombre"
+                                                                            class="TxtNormalU">@Model.SegundoNombre </span>&nbsp;<span id="lblPriApellido" class="TxtNormalU">@Model.Apellido
+                                                                            </span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="right">
+                                                                        <strong>Ingresó</strong>
+                                                                    </td>
+                                                                    <td nowrap="nowrap" bgcolor="#e0e0e0">
+                                                                        <span id="lblIngreso" class="TxtNormalU">@Model.Ingreso</span>
+                                                                    </td>
+                                                                    <td align="right">
+                                                                        <strong>Condición Académica</strong>
+                                                                    </td>
+                                                                    <td nowrap="nowrap" bgcolor="#e0e0e0">
+                                                                        <span id="lblCondicion" class="TxtNormalU">@Model.Condicion</span>&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="right">
+                                                                        <strong>Programa</strong>
+                                                                    </td>
+                                                                    <td nowrap="nowrap" bgcolor="#e0e0e0">
+                                                                        <span id="lblPrograma" class="TxtNormalU">@Model.Programa</span><span id="lblVersion" class="TxtNormalU"></span>&nbsp;<span
+                                                                            id="lblDescripcion" class="TxtNormalU"></span>&nbsp;
+                                                                    </td>
+                                                                    <td nowrap="nowrap" align="right">
+                                                                        <strong>Estado Pre/Selección</strong>
+                                                                    </td>
+                                                                    <td nowrap="nowrap" bgcolor="#e0e0e0">
+                                                                        <span id="lblEstado" class="TxtNormalU">@Model.EstadoSeleccion</span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="subpanelesTh">
+                                                        Consulte la oferta del trimestre según Áreas &nbsp;
+                                                        <select name="comAreas" 
+                                                        onchange="popitup($('select option:selected')[0].value,
+                                                        'Asignaturas disponibles')" id="comAreas">
+                                                        @foreach (var item in ViewBag.Areas)
+                                                        {
+                                                            <option value="@item.Codigo">@item.Nombre</option>
+                                                        }
+                                                            <option selected="selected" value="">Escoja una área</option>
+                                                        </select>
+                                                        &nbsp;
+                                                    </th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div id="msgError">
+                                            <font color="red">@ViewBag.Error</font>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" class="OpcTopMenu">
+                                        <strong>LISTADO DE ASIGNATURAS A SELECCIONAR PARA EL TRIMESTRE&nbsp;</strong>&nbsp;<span
+                                            id="lblTrimestre" class="TxtNormalT">@Model.TrimestreActual</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="middle">
+                                        <table cellspacing="1" cellpadding="2" rules="all" border="1" id="grdSeleccion" style="width:100%">
+                                            <tbody>
+                                                <tr class="DataGridHeader" align="Center">
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>&nbsp;</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Asignatura</b></font>
+                                                    </td>
+                                                    <td style="text-align: left;">
+                                                        <font face="Verdana" color="White" size="1"><b>Nombre Asignatura</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Cr.</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Tipo</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Cond.</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Sección</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Trim. Pensum</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Lunes</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Martes</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Miércoles</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Jueves</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Viernes</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Sábados</b></font>
+                                                    </td>
+                                                </tr>
+                                                    @foreach (var item in Model.Seleccion)
+                                                    {
+                                                        <tr class="ColNormal" bgcolor="White">
+                                                            <td align="Center">
+                                                            @if (item.EstatusTransaccion == DataAccess.EstatusTransaccion.Preregistered
+                                                                || item.EstatusTransaccion == DataAccess.EstatusTransaccion.Current)
+                                                            {
+                                                                <font face="Verdana" color="Black" size="1">
+                                                                <a href="@Url.Action("GuardarOferta", new {estudiante=Model.ID, codigo = item.CodigoCompleto, codigoCorto = item.Codigo, tipo = 0 })">
+                                                                    <font color="Black">
+                                                                        <img src="../../Content/themes/base/images/delete_icon.gif" border="0" align="absmiddle"
+                                                                            alt="Quitar Selección">
+                                                                    </font>
+                                                                </a>
+                                                                </font>
+                                                            }
+                                                            </td>
+                                                            <td align="Center">
+                                                                <font face="Verdana" color="Black" size="1">@item.Codigo</font>
+                                                            </td>
+                                                        
+                                                            <td style="text-align: left;">
+                                                                <font face="Verdana" color="Black" size="1">@item.Nombre</font>
+                                                            </td>
+                                                            <td align="Center">
+                                                                <font face="Verdana" color="Black" size="1">@item.Creditos</font>
+                                                            </td>
+                                                            <td align="Center">
+                                                                <font face="Verdana" color="Black" size="1">@item.Tipo</font>
+                                                            </td>
+                                                            <td align="Center">
+                                                                <font face="Verdana" color="Black" size="1">@item.Condicion</font>
+                                                            </td>
+                                                            <td align="Center">
+                                                                <font face="Verdana" color="Black" size="1">@item.Seccion</font>
+                                                            </td>
+                                                            <td>
+                                                                <font face="Verdana" color="Black" size="1">&nbsp;</font>
+                                                            </td>
+                                                            <td>
+                                                                <font face="Verdana" color="Black" size="1">@item.Horario.Lunes</font>
+                                                            </td>
+                                                            <td>
+                                                                <font face="Verdana" color="Black" size="1">@item.Horario.Martes</font>
+                                                            </td>
+                                                            <td>
+                                                                <font face="Verdana" color="Black" size="1">@item.Horario.Miercoles</font>
+                                                            </td>
+                                                            <td>
+                                                                <font face="Verdana" color="Black" size="1">@item.Horario.Jueves</font>
+                                                            </td>
+                                                            <td>
+                                                                <font face="Verdana" color="Black" size="1">@item.Horario.Viernes</font>
+                                                            </td>
+                                                            <td>
+                                                                <font face="Verdana" color="Black" size="1">@item.Horario.Sabado</font>
+                                                            </td>
+                                                        </tr>                                                                                                                                                                                                                                    
+                                                    }
+                                            </tbody>
+                                        </table>
+                                        <strong><font color="#0000a0">Si quiere agregar una nueva asignatura al listado anterior,
+                                            digite el código y presione el botón "Agregar"</font></strong>
+                                        <input name="txtAsignatura" type="text" id="txtAsignatura">
+                                            <input type="button" name="btnAgregar" value="Agregar" id="btnAgregar" class="myButtom"
+                                            onclick="javascript:location.href = '/seleccion/AgregarMateria?codigo='+$('#txtAsignatura').val()+'&&estudiante='+$('#IdEstudiante').html()">
+                                        <br>
+                                        Digite el código sin el guión ni la sección. Ejemplo : <span class="style1"><strong>
+                                            CBM901</strong></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="middle" class="OpcTopMenu">
+                                        <strong>SECCIONES DISPONIBLES PARA SELECCIONAR</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="middle">
+                                        <table cellspacing="1" cellpadding="2" rules="all" border="1" id="grdAsignaturaOferta" style="width:100%; text-align:Center;">
+                                            <tbody>
+                                                <tr class="DataGridHeader" align="Center">
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>&nbsp;</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Asignatura</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Sección</b></font>
+                                                    </td>
+                                                    <td style="text-align: left;">
+                                                        <font face="Verdana" color="White" size="1"><b>Nombre Asignatura</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Cr.</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Tipo</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Disponibilidad</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Lunes</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Martes</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Miércoles</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Jueves</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Viernes</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>Sábados</b></font>
+                                                    </td>
+                                                    <td>
+                                                        <font face="Verdana" color="White" size="1"><b>*</b></font>
+                                                    </td>
+                                                </tr>
+                                                @foreach (var item in Model.Oferta)
+                                                {                                                                                                   
+                                                <tr bgcolor="White">
+                                                    <td align="Center">
+                                                    @if (item.EstatusSeleccion == DataAccess.EstatusSeleccion.Disponible)
+                                                    {
+                                                        <font face="Verdana" color="Black" size="1">
+                                                        <a href="@Url.Action("GuardarOferta", new { codigo = item.CodigoCompleto, codigoCorto = item.Codigo, tipo = 1, estudiante=Model.ID})">
+                                                            <font color="Black">
+                                                                <img src="../../Content/themes/base/images/ok.gif" border="0" align="absmiddle"
+                                                                    alt="Quitar Selección">
+                                                            </font>
+                                                        </a>
+                                                        </font>
+                                                    }
+                                                    </td>
+                                                    <td align="Center" bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Codigo </font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Seccion</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow"  align="left">
+                                                        <font face="Verdana" color="Black" size="1">@item.Nombre</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Creditos</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Tipo</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Cupo</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Horario.Lunes</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Horario.Martes</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Horario.Miercoles</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Horario.Jueves</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Horario.Viernes</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow">
+                                                        <font face="Verdana" color="Black" size="1">@item.Horario.Sabado</font>
+                                                    </td>
+                                                    <td bgcolor="LightYellow"  align="left">
+                                                        <font face="Verdana" color="Black" size="1">@item.EstatusSeleccion</font>
+                                                    </td>
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </form>
+    </td>
+</tr>
+<tr>
+    <!-- Footer -->
+    <td colspan="2">
+        <table class="wrapper" width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td colspan="2" align="center" valign="top" class="pageFooter aChiquitos">
+                        <hr class="hrPageFooter">
+                        Instituto Tecnológico de Santo Domingo - INTEC
+                        <!-- MENU PIE DE PAGINA 		<a href="javascript:window.location.href=_siteUrl + '?o=acerca'">Sobre INTEC</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=admisiones2'">Admisiones</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=estudiantes2'">Estudiantes</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=nuestrasCarreras'">Carreras Impartidas</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=profesores2'">Profesores</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=investigacion'">Investigación y Vinculación</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=biblioteca2'">Biblioteca</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=egresados'" target="_blank">Egresados</a>        -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+</tbody></table> 

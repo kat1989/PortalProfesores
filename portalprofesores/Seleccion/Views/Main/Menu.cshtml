@@ -1,0 +1,138 @@
+﻿@model DataAccess.Model.Estudiante
+@{
+    ViewBag.Title = "Menu";
+}
+<td colspan="2" align="center">
+    <form name="_ctl0" method="post" action="default.aspx" id="_ctl0" class="wrapper">
+    </script>
+    <table id="tblOpciones" border="0" cellpadding="0" cellspacing="3" class="wrapper"
+        align="left">
+        <tbody>
+            <tr>
+                <td valign="top">
+                    <div class="panelesDiv panelEstudiantes">
+                        <h4>
+                            Procesos e Informaciones</h4>
+                        <ul>
+                            @{
+                                var resultPre = ViewBag.ErrorPre == "" || ViewBag.ErrorPre == null ?
+                                    @Url.Action("Index", "Seleccion",new { tipo = 0 }) :
+                                    "javascript:alert('" + ViewBag.ErrorPre+"')";
+                                var resultRetiro = ViewBag.ErrorRetiro == "" || ViewBag.ErrorRetiro == null ?
+                                    @Url.Action("Index", "Retiro") :
+                                    "javascript:alert('" + ViewBag.ErrorRetiro + "')";
+                                var resultSeleccion = ViewBag.ErrorSeleccion == "" || ViewBag.ErrorSeleccion == null ?
+                                    @Url.Action("Index", "Seleccion", new { tipo = 1 }) :
+                                    "javascript:alert('" + ViewBag.ErrorSeleccion + "')";                                    
+                            }
+                                
+                            <li><a href="@resultPre">Preseleccion de Asignaturas</a></li>
+                            <li><a href="@resultSeleccion">Seleccion de Asignaturas</a></li>
+                            <li><a href="@resultRetiro">Retiro de Asignaturas</a></li>
+                            <ul class="internal_ul">
+                                <span>Reportes</span>
+                                <li><a href="@Url.Action("Index", "Reporte", new { r = "Calificaciones Finales" })">Calificaciones Finales</a></li>
+                                <li><a href="@Url.Action("Index", "Reporte", new { r = "Historial Academico" })">Historial Academico</a></li>                                
+                                <li><a href="@Url.Action("Index", "Reporte", new { r = "Seleccion" })">Seleccion</a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </td>
+                <td width="15px">
+                </td>
+                <td valign="top">
+                    <br>
+                    <table style="border: 1px solid black; width: 350px; display: none">
+                        <tbody>
+                            <tr>
+                                <td colspan="2" style="background-color: Silver" align="center">
+                                    Calendario modificación de Asignaturas en línea<br>
+                                    <span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0);
+                                        font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal;
+                                        letter-spacing: normal; line-height: normal; orphans: 2; text-align: auto; text-indent: 0px;
+                                        text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-border-horizontal-spacing: 0px;
+                                        -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none;
+                                        -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;">
+                                        <span class="Apple-style-span" style="color: rgb(69, 68, 68); font-family: Arial, Helvetica, sans-serif;
+                                            font-size: 12px; text-align: -webkit-left;">(10:00 a.m. a 12:00 a. m.)</span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: Silver" align="right">
+                                    &nbsp;<span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0);
+                                        font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal;
+                                        letter-spacing: normal; line-height: normal; orphans: 2; text-align: auto; text-indent: 0px;
+                                        text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-border-horizontal-spacing: 0px;
+                                        -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none;
+                                        -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;"><span
+                                            class="Apple-style-span" style="color: rgb(69, 68, 68); font-family: Arial, Helvetica, sans-serif;
+                                            font-size: 12px; text-align: center;"><strong>Martes 01</strong></span></span>
+                                </td>
+                                <td align="center">
+                                    <span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0);
+                                        font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal;
+                                        letter-spacing: normal; line-height: normal; orphans: 2; text-align: auto; text-indent: 0px;
+                                        text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-border-horizontal-spacing: 0px;
+                                        -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none;
+                                        -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;">
+                                        <span class="Apple-style-span" style="color: rgb(69, 68, 68); font-family: Arial, Helvetica, sans-serif;
+                                            font-size: 12px; text-align: center;"><strong>Matrículas 06-0001 a la 10-3099</strong></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: Silver" align="right">
+                                    <span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0);
+                                        font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal;
+                                        letter-spacing: normal; line-height: normal; orphans: 2; text-align: auto; text-indent: 0px;
+                                        text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-border-horizontal-spacing: 0px;
+                                        -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none;
+                                        -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;">
+                                        <span class="Apple-style-span" style="color: rgb(69, 68, 68); font-family: Arial, Helvetica, sans-serif;
+                                            font-size: 12px; text-align: center;"><strong>Miércoles 02</strong></span></span>
+                                </td>
+                                <td align="center">
+                                    <span class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0);
+                                        font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal;
+                                        letter-spacing: normal; line-height: normal; orphans: 2; text-align: auto; text-indent: 0px;
+                                        text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-border-horizontal-spacing: 0px;
+                                        -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none;
+                                        -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;">
+                                        <span class="Apple-style-span" style="color: rgb(69, 68, 68); font-family: Arial, Helvetica, sans-serif;
+                                            font-size: 12px; text-align: center;"><strong>Matrículas 73-0001 a la 05-3099</strong></span></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="4">
+                    <div id="msgError">
+                        <font color="red"></font>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+</td>
+</tr>
+<tr>
+    <!-- Footer -->
+    <td colspan="2">
+        <table class="wrapper" width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td colspan="2" align="center" valign="top" class="pageFooter aChiquitos">
+                        <hr class="hrPageFooter">
+                        Instituto Tecnológico de Santo Domingo - INTEC
+                        <!-- MENU PIE DE PAGINA 		<a href="javascript:window.location.href=_siteUrl + '?o=acerca'">Sobre INTEC</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=admisiones2'">Admisiones</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=estudiantes2'">Estudiantes</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=nuestrasCarreras'">Carreras Impartidas</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=profesores2'">Profesores</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=investigacion'">Investigación y Vinculación</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=biblioteca2'">Biblioteca</a>        <img src="/appintec.net/images/separator.gif" alt="" width="3" height="13" />		<a href="javascript:window.location.href=_siteUrl + 'o=egresados'" target="_blank">Egresados</a>        -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+</tbody></table><!-- </body></html> -->

@@ -1,0 +1,77 @@
+﻿@model DataAccess.Model.EstudianteRetiro
+
+
+   <tr>
+        <td colspan="2" align="center">
+
+            <br>
+            <h2 id="strMessage"></h2>
+            <table cellspacing="1" cellpadding="2" rules="all" fontstyle-horizontalalign="Center" border="1" id="grdAsignatura" style="color:Black;font-family:Verdana;font-size:XX-Small;">
+                <tr align="Center" bgcolor="Black">
+                    <td class="tableHeader white-text">Clave</td>
+                    <td class="tableHeader white-text">Sec</td>
+                    <td class="tableHeader white-text">Cr</td>
+                    <td class="tableHeader white-text" width="500" style="text-align:left">Asignatura</td>
+                    <td class="tableHeader white-text">Calif</td>
+                </tr>
+                @foreach (var item in Model.Asignaturas)
+                {
+                    if (item.New)
+                    {
+                        <tr class="ColNormal" bgcolor="White">
+                            <td>@item.Codigo</td>
+                            <td>@item.Seccion</td>
+                            <td>@item.Creditos</td>
+                            <td style="text-align:left">@item.Nombre</td>
+                            <td>R</td>
+                        </tr>
+                    }
+                }
+
+            </table>
+
+                        <br>  <br>
+            <br>
+
+            <br>
+
+            <table width="600px">
+                <tr>
+                    <td align="center">
+                    </td>
+                    <td> &nbsp; </td>
+                    <td align="center">
+                        <a href="@Url.Action("ObtenerPDF", "Retiro")">
+                            <img id="slidedown_top" src="../../Content/themes/base/images/pdf_file.png" />
+                        </a>
+                    </td>
+                    <td> &nbsp; </td>
+                    <td align="center">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"></td>
+                    <td> &nbsp; </td>
+                    <td align="center">Descargar Reporte</td>
+                    <td> &nbsp; </td>
+                    <td align="center"></td>
+                </tr>
+
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+
+            <table class="wrapper" width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="2" align="center" valign="top" class="pageFooter aChiquitos">
+                        <hr class="hrPageFooter" />
+                        Instituto Tecnol&oacute;gico de Santo Domingo - INTEC
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="@Url.Content("~/Content/ie.css")">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" href="@Url.Content("~/Content/ie7.css")">
+<![endif]-->
+<!--[if IE 6]>
+<link rel="stylesheet" href="@Url.Content("~/Content/ie7.css")">
+<![endif]-->
+<noscript>
+    <link rel="stylesheet" href="@Url.Content("~/Content/noscript.css")">
+</noscript>
+    <title>@ViewBag.Title</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" href="@Url.Content("~/Content/uikit.min.css")">
+	<link rel="stylesheet" href="@Url.Content("~/Content/style.css")">
+	<script src="@Url.Content("~/Scripts/jquery-1.11.0.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/jquery-ui.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/uikit.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/ui.js")"></script>   
+    <script src="@Url.Content("~/Scripts/Events.js")"></script>
+</head>
+<body>
+	<header>
+		<img class="logo" src="@Url.Content("~/Content/themes/base/images/logo_top.jpg")">
+	</header>
+    @RenderBody()
+    <div class="loading">
+        <span></span>
+    </div>
+</body>    
+</html>
+

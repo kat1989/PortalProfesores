@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess
+END
+Jenzabar.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/Jenzabar.Designer.cs
+END
+IRetrievable.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/IRetrievable.cs
+END
+ProfesorRepository.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/ProfesorRepository.cs
+END
+App.Config
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/App.Config
+END
+ErroresRepository.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/ErroresRepository.cs
+END
+PeriodoRepository.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/PeriodoRepository.cs
+END
+Jenzabar.edmx
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/Jenzabar.edmx
+END
+DataAccess.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/DataAccess/DataAccess.csproj
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Seleccion/Controllers
+END
+LoginController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Seleccion/Controllers/LoginController.cs
+END
+ReporteController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Seleccion/Controllers/ReporteController.cs
+END
+MainController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Seleccion/Controllers/MainController.cs
+END
+RetiroController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Seleccion/Controllers/RetiroController.cs
+END
+SeleccionController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/revision_calificaciones/!svn/ver/4/trunk/portalprofesores/Seleccion/Controllers/SeleccionController.cs
+END

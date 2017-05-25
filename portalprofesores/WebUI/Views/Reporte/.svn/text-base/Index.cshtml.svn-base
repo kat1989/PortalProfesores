@@ -1,0 +1,29 @@
+﻿@model DataAccess.Model.Profesor
+
+@{  
+    Layout = "~/Views/Shared/_ContentLayout.cshtml";
+    var indiceReporte = Request.QueryString["r"];
+    int id = 0;
+    int.TryParse(indiceReporte, out id);
+    string nombreReporte = WebUI.Helpers.ReportCenterConfiguration.Instance.Reports[id].Visualization;
+    ViewBag.Title = nombreReporte;
+}
+
+<input id="txtReporte" type="hidden" value="@Request.QueryString["r"]" />
+@Html.Partial("_Topbar")
+<h1 class="section-title light-bottom-border">@nombreReporte</h1>
+
+@if (!String.IsNullOrEmpty(ViewBag.Error))
+{
+    <script type="text/javascript">alert("@ViewBag.Error")</script>
+}
+
+<script type="text/javascript">
+    $(function() {
+        document.getElementById("reportViewer").src = "../../Reportes/ReportViewer.aspx?r="+@indiceReporte
+    });
+</script>
+
+<iframe id="reportViewer" width="100%" height="1600px">
+
+</iframe>
